@@ -1,0 +1,679 @@
+/* ========================================
+   VARIABLES DE COULEUR
+   ======================================== */
+
+:root {
+
+    --background: #f3f5f8;
+
+    --card: #ffffff;
+
+    --text: #20242a;
+
+    --muted: #737b86;
+
+    --primary: #5865f2;
+
+    --primary-dark: #4652d8;
+
+    --success: #22a06b;
+
+    --success-background: #e8f7ef;
+
+    --error: #e5484d;
+
+    --error-background: #fdeced;
+
+    --border: #dfe3e8;
+
+}
+
+
+/* ========================================
+   BASE
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+/* ========================================
+   APPLICATION
+   ======================================== */
+
+.app {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    min-height: 100vh;
+
+    background: var(--card);
+
+    padding: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.screen {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+.hidden {
+
+    display: none;
+
+}
+
+
+/* ========================================
+   ACCUEIL
+   ======================================== */
+
+.logo {
+
+    width: 140px;
+
+    height: 140px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.logo img {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.12);
+
+}
+h1 {
+
+    font-size: 46px;
+
+    margin: 0;
+
+}
+
+
+.subtitle {
+
+    font-size: 22px;
+
+    color: var(--muted);
+
+    margin: 15px 0 45px;
+
+}
+
+
+/* ========================================
+   TITRES
+   ======================================== */
+
+h2 {
+
+    font-size: 34px;
+
+    margin: 0 0 30px;
+
+}
+
+
+h3 {
+
+    margin-top: 30px;
+
+}
+
+
+/* ========================================
+   BOUTONS
+   ======================================== */
+
+button {
+
+    width: 100%;
+
+    min-height: 64px;
+
+    margin-top: 15px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s,
+        background 0.15s;
+
+}
+
+
+button:active {
+
+    transform: scale(0.98);
+
+}
+
+
+.primary-button {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+.primary-button:hover {
+
+    background: var(--primary-dark);
+
+}
+
+
+.secondary-button {
+
+    background: #e9edf1;
+
+    color: var(--text);
+
+}
+
+
+/* ========================================
+   CONFIGURATION
+   ======================================== */
+
+.settings-card {
+
+    background: #f8f9fb;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    text-align: left;
+
+}
+
+
+.settings-card > label {
+
+    display: block;
+
+    margin-bottom: 22px;
+
+}
+
+
+.settings-card label span:first-child {
+
+    display: block;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+}
+
+
+input[type="number"] {
+
+    width: 100%;
+
+    height: 55px;
+
+    padding: 10px 15px;
+
+    border: 2px solid var(--border);
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--text);
+
+    font-size: 22px;
+
+}
+
+
+input[type="number"]:focus {
+
+    outline: none;
+
+    border-color: var(--primary);
+
+}
+
+
+.input-with-unit {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.input-with-unit input {
+
+    flex: 1;
+
+}
+
+
+.input-with-unit span {
+
+    color: var(--muted);
+
+    white-space: nowrap;
+
+}
+
+
+.setting-title {
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    margin: 30px 0 15px;
+
+}
+
+
+.operations {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+}
+
+
+.operation {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-height: 65px;
+
+    padding: 10px 15px;
+
+    background: white;
+
+    border: 2px solid var(--border);
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+}
+
+
+.operation input {
+
+    width: 23px;
+
+    height: 23px;
+
+}
+
+
+.operation strong {
+
+    display: inline-block;
+
+    width: 28px;
+
+    font-size: 25px;
+
+}
+
+
+/* ========================================
+   EXERCICE
+   ======================================== */
+
+.exercise-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.progress {
+
+    font-size: 20px;
+
+    color: var(--muted);
+
+}
+
+
+#timer {
+
+    min-width: 80px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: var(--primary);
+
+}
+
+
+.calculation-area {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+#calculation {
+
+    font-size: 80px;
+
+    font-weight: bold;
+
+    margin: 40px 0;
+
+    letter-spacing: 2px;
+
+}
+
+
+#answer-container {
+
+    width: 100%;
+
+    max-width: 350px;
+
+}
+
+
+#answer {
+
+    width: 100%;
+
+    height: 90px;
+
+    font-size: 52px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    border: 3px solid var(--border);
+
+    border-radius: 16px;
+
+}
+
+
+#feedback {
+
+    width: 100%;
+
+    min-height: 65px;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+
+
+.validate-button {
+
+    max-width: 350px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+/* ========================================
+   RÉSULTATS
+   ======================================== */
+
+.result-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: var(--success-background);
+
+    color: var(--success);
+
+    font-size: 45px;
+
+    font-weight: bold;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+#score {
+
+    font-size: 72px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
+}
+
+
+.score-label {
+
+    color: var(--muted);
+
+    font-size: 18px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.statistics {
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+}
+
+
+.mistakes {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: var(--error-background);
+
+    border-radius: 15px;
+
+    text-align: left;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+
+.mistakes h3 {
+
+    margin-top: 0;
+
+}
+
+
+.result-buttons {
+
+    margin-top: 25px;
+
+}
+
+
+/* ========================================
+   TABLETTE / PETIT ÉCRAN
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .app {
+
+        padding: 20px;
+
+    }
+
+
+    h1 {
+
+        font-size: 38px;
+
+    }
+
+
+    #calculation {
+
+        font-size: 60px;
+
+        margin: 30px 0;
+
+    }
+
+
+    .operations {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* ========================================
+   MODE PAYSAGE TABLETTE
+   ======================================== */
+
+@media (orientation: landscape)
+       and (min-width: 700px) {
+
+    .app {
+
+        max-width: 850px;
+
+    }
+
+    #calculation {
+
+        font-size: 85px;
+
+        margin: 20px 0;
+
+    }
+
+}

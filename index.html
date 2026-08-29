@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Calcul Mental</title>
+
+<link rel="manifest"
+      href="manifest.json">
+
+<meta name="theme-color"
+      content="#5865f2">
+
+<link rel="apple-touch-icon"
+      href="icon-512.png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="app">
+
+    <!-- ========================= -->
+    <!-- ACCUEIL                   -->
+    <!-- ========================= -->
+
+    <section id="home-screen" class="screen">
+
+        <div class="logo">
+    <img
+        src="icon-512.png"
+        alt="Calcul Mental">
+</div>
+
+        <h1>Calcul Mental</h1>
+
+        <p class="subtitle">
+            Prêt ?
+        </p>
+
+        <button id="start-button" class="primary-button">
+            Commencer
+        </button>
+
+        <button id="settings-button"
+                class="secondary-button">
+            ⚙ Configuration
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- CONFIGURATION              -->
+    <!-- ========================= -->
+
+    <section id="settings-screen"
+             class="screen hidden">
+
+        <h2>Configuration</h2>
+
+
+        <div class="settings-card">
+
+            <label>
+                <span>Nombre de calculs</span>
+
+                <input
+                    id="question-count"
+                    type="number"
+                    min="1"
+                    max="100"
+                    value="20">
+            </label>
+
+
+            <label>
+                <span>Temps maximum</span>
+
+                <div class="input-with-unit">
+
+                    <input
+                        id="time-limit"
+                        type="number"
+                        min="1"
+                        max="30"
+                        step="0.5"
+                        value="4">
+
+                    <span>secondes</span>
+
+                </div>
+            </label>
+
+
+            <label>
+                <span>Résultat maximum</span>
+
+                <input
+                    id="max-result"
+                    type="number"
+                    min="1"
+                    max="1000"
+                    value="20">
+            </label>
+
+
+            <div class="setting-title">
+                Opérations
+            </div>
+
+
+            <div class="operations">
+
+                <label class="operation">
+
+                    <input
+                        id="operation-addition"
+                        type="checkbox"
+                        checked>
+
+                    <span>
+                        <strong>+</strong>
+                        Addition
+                    </span>
+
+                </label>
+
+
+                <label class="operation">
+
+                    <input
+                        id="operation-subtraction"
+                        type="checkbox">
+
+                    <span>
+                        <strong>−</strong>
+                        Soustraction
+                    </span>
+
+                </label>
+
+
+                <label class="operation">
+
+                    <input
+                        id="operation-multiplication"
+                        type="checkbox">
+
+                    <span>
+                        <strong>×</strong>
+                        Multiplication
+                    </span>
+
+                </label>
+
+
+                <label class="operation">
+
+                    <input
+                        id="operation-division"
+                        type="checkbox">
+
+                    <span>
+                        <strong>÷</strong>
+                        Division
+                    </span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <button id="settings-start-button"
+                class="primary-button">
+
+            Commencer
+
+        </button>
+
+
+        <button id="back-button"
+                class="secondary-button">
+
+            Retour
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- EXERCICE                   -->
+    <!-- ========================= -->
+
+    <section id="exercise-screen"
+             class="screen hidden">
+
+
+        <div class="exercise-header">
+
+            <div class="progress">
+
+                <span id="current-question">
+                    1
+                </span>
+
+                /
+
+                <span id="total-questions">
+                    20
+                </span>
+
+            </div>
+
+
+            <div id="timer">
+                4.0
+            </div>
+
+        </div>
+
+
+        <div class="calculation-area">
+
+            <div id="calculation">
+                13 + 6
+            </div>
+
+
+            <div id="answer-container">
+
+                <input
+                    id="answer"
+                    type="number"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    aria-label="Réponse">
+
+            </div>
+
+
+            <div id="feedback">
+            </div>
+
+        </div>
+
+
+        <button id="validate-button"
+                class="validate-button">
+
+            Valider
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- RÉSULTATS                 -->
+    <!-- ========================= -->
+
+    <section id="result-screen"
+             class="screen hidden">
+
+
+        <div class="result-icon">
+            ✓
+        </div>
+
+
+        <h2>Exercice terminé</h2>
+
+
+        <div id="score">
+            17 / 20
+        </div>
+
+
+        <div class="score-label">
+            Score
+        </div>
+
+
+        <div id="statistics"
+             class="statistics">
+        </div>
+
+
+        <div id="mistakes"
+             class="mistakes">
+        </div>
+
+
+        <div class="result-buttons">
+
+            <button id="retry-mistakes-button"
+                    class="primary-button">
+
+                Refaire les erreurs
+
+            </button>
+
+
+            <button id="restart-button"
+                    class="secondary-button">
+
+                Recommencer l'exercice
+
+            </button>
+
+
+            <button id="new-exercise-button"
+                    class="secondary-button">
+
+                ⚙ Modifier la configuration
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="app.js"></script>
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener(
+        "load",
+        () => {
+
+            navigator.serviceWorker.register(
+                "service-worker.js"
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+</body>
+
+</html>

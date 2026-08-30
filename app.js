@@ -1245,6 +1245,50 @@ newExerciseButton.addEventListener(
     }
 );
 
+// =====================
+// INSTALLATION PWA
+// =====================
+
+let deferredPrompt;
+
+const installButton =
+    document.getElementById(
+        "installButton"
+    );
+
+window.addEventListener(
+    "beforeinstallprompt",
+    event => {
+
+        event.preventDefault();
+
+        deferredPrompt = event;
+
+        installButton.hidden = false;
+
+    }
+);
+
+installButton.addEventListener(
+    "click",
+    async () => {
+
+        if (!deferredPrompt) {
+
+            return;
+
+        }
+
+        deferredPrompt.prompt();
+
+        await deferredPrompt.userChoice;
+
+        deferredPrompt = null;
+
+        installButton.hidden = true;
+
+    }
+);
 
 // ==========================================
 // INITIALISATION

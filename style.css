@@ -237,6 +237,12 @@ button:active {
 
 }
 
+#installButton {
+
+    margin-top: 12px;
+
+}
+
 
 /* ========================================
    CONFIGURATION

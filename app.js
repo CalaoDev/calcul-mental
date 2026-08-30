@@ -470,7 +470,7 @@ function displayCalculation() {
 
     validateButton.disabled = false;
 
-
+    calculation.focus();
     //answerInput.focus();
 
 }

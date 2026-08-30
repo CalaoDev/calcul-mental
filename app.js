@@ -471,7 +471,7 @@ function displayCalculation() {
     validateButton.disabled = false;
 
 
-    answerInput.focus();
+    //answerInput.focus();
 
 }
 

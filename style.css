@@ -415,7 +415,7 @@ input[type="number"]:focus {
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content: flex-start; //space-between;
 
     align-items: center;
 

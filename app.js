@@ -127,6 +127,31 @@ const retryMistakesButton =
 const newExerciseButton =
     document.getElementById("new-exercise-button");
 
+const modeClassic =
+    document.getElementById(
+        "mode-classic"
+    );
+
+const modeTables =
+    document.getElementById(
+        "mode-tables"
+    );
+
+const tablesSettings =
+    document.getElementById(
+        "tables-settings"
+    );
+
+const operationsSettings =
+    document.getElementById(
+        "operations-settings"
+    );
+
+const maxResultSetting =
+    document.getElementById(
+        "max-result-setting"
+    );
+
 
 // ==========================================
 // AFFICHER UN ÉCRAN
@@ -265,7 +290,72 @@ function randomInteger(min, max) {
 
 }
 
+// =========================================
+// GENERER DES TABLES
+// =========================================
+function generateTableCalculation() {
 
+    const selectedTables =
+
+        Array.from(
+            document.querySelectorAll(
+                ".table-checkbox:checked"
+            )
+        ).map(
+            checkbox =>
+                Number(
+                    checkbox.value
+                )
+        );
+
+    if (
+        selectedTables.length === 0
+    ) {
+
+        return {
+
+            a: 1,
+
+            b: 1,
+
+            operation: "*",
+
+            answer: 1
+
+        };
+
+    }
+
+    const table =
+
+        selectedTables[
+            Math.floor(
+                Math.random()
+                *
+                selectedTables.length
+            )
+        ];
+
+    const multiplier =
+
+        Math.floor(
+            Math.random() * 10
+        ) + 1;
+
+    return {
+
+        a: table,
+
+        b: multiplier,
+
+        operation: "*",
+
+        answer:
+            table * multiplier
+
+    };
+
+}
 // ==========================================
 // GÉNÉRER UN CALCUL
 // ==========================================
@@ -428,9 +518,26 @@ function displayCalculation() {
     answerSubmitted = false;
 
 
+if (retryMode) {
+
+    currentCalculation =
+        retryQuestions[
+            currentQuestion - 1
+        ];
+
+}
+else if (modeTables.checked) {
+
+    currentCalculation =
+        generateTableCalculation();
+
+}
+else {
+
     currentCalculation =
         generateCalculation();
 
+}
 
     const symbol =
 
@@ -1290,9 +1397,49 @@ installButton.addEventListener(
     }
 );
 
+modeClassic.addEventListener(
+    "change",
+    () => {
+
+        tablesSettings.classList.add(
+            "hidden"
+        );
+
+        operationsSettings.classList.remove(
+            "hidden"
+        );
+
+        maxResultSetting.classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+modeTables.addEventListener(
+    "change",
+    () => {
+
+        tablesSettings.classList.remove(
+            "hidden"
+        );
+
+        operationsSettings.classList.add(
+            "hidden"
+        );
+
+        maxResultSetting.classList.add(
+            "hidden"
+        );
+
+    }
+);
 // ==========================================
 // INITIALISATION
 // ==========================================
+console.log("modeClassic =", modeClassic);
+console.log("modeTables =", modeTables);
+console.log("tablesSettings =", tablesSettings);
 
 showScreen(
     homeScreen
